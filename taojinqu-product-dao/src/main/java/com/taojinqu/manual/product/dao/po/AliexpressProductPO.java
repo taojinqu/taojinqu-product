@@ -2,6 +2,7 @@ package com.taojinqu.manual.product.dao.po;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class AliexpressProductPO implements Serializable {
 
@@ -94,8 +95,8 @@ public class AliexpressProductPO implements Serializable {
 
 	private Integer bulk_discount;
 
-//	private AliexpressProductExtendPO productExtendModel;
-//	private List<AliexpressProductVariationPO> productVariationList;
+	private AliexpressProductExtendPO productExtendModel;
+	private List<AliexpressProductVariationPO> productVariationList;
 
 	public Integer getId() {
 		return id;
@@ -385,21 +386,21 @@ public class AliexpressProductPO implements Serializable {
 		this.is_pack_sell = is_pack_sell;
 	}
 
-//	public List<AliexpressProductVariationPO> getProductVariationList() {
-//		return productVariationList;
-//	}
-//
-//	public void setProductVariationList(List<AliexpressProductVariationPO> productVariationList) {
-//		this.productVariationList = productVariationList;
-//	}
-//
-//	public AliexpressProductExtendPO getProductExtendModel() {
-//		return productExtendModel;
-//	}
-//
-//	public void setProductExtendModel(AliexpressProductExtendPO productExtendModel) {
-//		this.productExtendModel = productExtendModel;
-//	}
+	public List<AliexpressProductVariationPO> getProductVariationList() {
+		return productVariationList;
+	}
+
+	public void setProductVariationList(List<AliexpressProductVariationPO> productVariationList) {
+		this.productVariationList = productVariationList;
+	}
+
+	public AliexpressProductExtendPO getProductExtendModel() {
+		return productExtendModel;
+	}
+
+	public void setProductExtendModel(AliexpressProductExtendPO productExtendModel) {
+		this.productExtendModel = productExtendModel;
+	}
 
 	public Integer getPromise_template_id() {
 		return promise_template_id;

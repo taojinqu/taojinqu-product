@@ -10,8 +10,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.ueb.automatic</groupId>
-			<artifactId>transfer-listing-disconf</artifactId>
+			<groupId>com.yunheng.taojinqu</groupId>
+			<artifactId>taojinqu-product-disconf</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

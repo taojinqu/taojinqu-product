@@ -1,7 +1,6 @@
 package com.taojinqu.manual.product.service;
 
 import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -42,7 +41,7 @@ public class AliexpressProductServiceTest extends BaseTest {
 		return productModel;
 	}
 
-	@Test
+	// @Test
 	public void testInsert() throws Exception {
 		try {
 			aliProductService.insert(getModel());

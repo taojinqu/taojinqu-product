@@ -12,7 +12,7 @@ public class MongoConfig {
 	private String mongoHost;
 
 	@Value("${mongo.port}")
-	private String mongoPort;
+	private Integer mongoPort;
 
 	@Value("${mongo.database}")
 	private String mongoDatabse;
@@ -27,7 +27,7 @@ public class MongoConfig {
 		return mongoHost;
 	}
 
-	public String getMongoPort() {
+	public Integer getMongoPort() {
 		return mongoPort;
 	}
 

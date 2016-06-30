@@ -2,6 +2,7 @@ package com.taojinqu.manual.product.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,8 @@ import com.taojinqu.manual.product.disconf.MongoConfig;
 public class MongoDbSourceConfig {
 	private Logger logger = LoggerFactory.getLogger(MongoDbSourceConfig.class);
 
+	public Map<String, MongoTemplate> temp;
+
 	@Autowired
 	private MongoConfig mongoConfig;
 
@@ -33,9 +36,10 @@ public class MongoDbSourceConfig {
 	public MongoDbFactory buildMongoDbFactory() throws Exception {
 		List<ServerAddress> serverList = new ArrayList<ServerAddress>();
 		try {
-			serverList.add(new ServerAddress(mongoConfig.getMongoHost(), Integer.parseInt(mongoConfig.getMongoPort())));
+			serverList.add(new ServerAddress(mongoConfig.getMongoHost(), mongoConfig.getMongoPort()));
+
 			List<MongoCredential> credsList = new ArrayList<MongoCredential>();
-			credsList.add(MongoCredential.createMongoCRCredential(mongoConfig.getMongoUserName(),
+			credsList.add(MongoCredential.createCredential(mongoConfig.getMongoUserName(),
 					mongoConfig.getMongoDatabse(), mongoConfig.getMongoPassword().toCharArray()));
 
 			MongoClient mongoclient = new MongoClient(serverList, credsList);
@@ -51,7 +55,8 @@ public class MongoDbSourceConfig {
 		DbRefResolver resolver = new DefaultDbRefResolver(mongoDbFactory);
 
 		MappingMongoConverter converter = new MappingMongoConverter(resolver, new MongoMappingContext());
-		converter.setTypeMapper(new DefaultMongoTypeMapper(null));
+		converter.setTypeMapper(new DefaultMongoTypeMapper(null)); // 每个document会自动增加_class字段，值为实体的完整包路径，如：com.taojinqu.manual.product.mongo.domain.User
+		// converter.setTypeMapper(new DefaultMongoTypeMapper());
 		converter.afterPropertiesSet();
 
 		MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory, converter);

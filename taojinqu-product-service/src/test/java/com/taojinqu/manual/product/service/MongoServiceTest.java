@@ -29,8 +29,9 @@ public class MongoServiceTest extends BaseTest {
 	}
 
 	@Test
+	@SuppressWarnings("unchecked")
 	public void testFindAll() {
-		List<User> userList = mongoService.findAll(User.class, "user");
+		List<User> userList = (List<User>) mongoService.findAll(User.class, "user");
 		for (User user : userList) {
 			System.out.println(user);
 		}

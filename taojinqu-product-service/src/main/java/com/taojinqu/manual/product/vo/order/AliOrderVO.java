@@ -1,12 +1,19 @@
 package com.taojinqu.manual.product.vo.order;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
-import com.alibaba.fastjson.JSON;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "transfer_ali_order")
 public class AliOrderVO implements Serializable {
+
+	@Id
+	private String _id;
+
+	public String get_id() {
+		return _id;
+	}
 
 	/**
 	 * 
@@ -19,9 +26,9 @@ public class AliOrderVO implements Serializable {
 
 	private String buyerloginid;
 
-	private List<ChildOrderExtInfoVO> childOrderExtInfo;
-
-	private List<ChildOrderVO> childOrder;
+	// private List<ChildOrderExtInfoVO> childOrderExtInfo;
+	//
+	// private List<ChildOrderVO> childOrder;
 
 	private String escrowFee;
 
@@ -29,13 +36,13 @@ public class AliOrderVO implements Serializable {
 
 	private String fundStatus;
 
-	private Date gmtCreate;
-
-	private Date gmtModified;
-
-	private Date gmtPaySuccess;
-
-	private Date gmtTradeEnd;
+	// private Date gmtCreate;
+	//
+	// private Date gmtModified;
+	//
+	// private Date gmtPaySuccess;
+	//
+	// private Date gmtTradeEnd;
 
 	private Long id;
 
@@ -51,13 +58,13 @@ public class AliOrderVO implements Serializable {
 
 	private String loanStatus;
 
-	private List<LogisticInfoVO> logisticInfo;
+	// private List<LogisticInfoVO> logisticInfo;
 
 	private String logisticsAmount;
 
 	private String logisticsStatus;
 
-	private List<OprLogDtoVO> oprLogDtos;
+	// private List<OprLogDtoVO> oprLogDtos;
 
 	private String orderAmount;
 
@@ -74,58 +81,63 @@ public class AliOrderVO implements Serializable {
 	private String sellerOperatorLoginId;
 
 	private String sellerSignerFullname;
+	//
+	// public void setChildOrderExtInfoList(String childOrderExtInfo) {
+	// List<ChildOrderExtInfoVO> infoList = JSON.parseArray(childOrderExtInfo,
+	// ChildOrderExtInfoVO.class);
+	// this.setChildOrderExtInfo(infoList);
+	// }
 
-	public void setChildOrderExtInfoList(String childOrderExtInfo) {
-		List<ChildOrderExtInfoVO> infoList = JSON.parseArray(childOrderExtInfo, ChildOrderExtInfoVO.class);
-		this.setChildOrderExtInfo(infoList);
-	}
+	// public List<ChildOrderExtInfoVO> getChildOrderExtInfo() {
+	// return childOrderExtInfo;
+	// }
+	//
+	// public void setChildOrderExtInfo(List<ChildOrderExtInfoVO>
+	// childOrderExtInfo) {
+	// this.childOrderExtInfo = childOrderExtInfo;
+	// }
+	//
+	// public void setChildOrderList(String childOrder) {
+	// List<ChildOrderVO> childOrderList = JSON.parseArray(childOrder,
+	// ChildOrderVO.class);
+	// this.setChildOrder(childOrderList);
+	// }
+	//
+	// public List<ChildOrderVO> getChildOrder() {
+	// return childOrder;
+	// }
+	//
+	// public void setChildOrder(List<ChildOrderVO> childOrder) {
+	// this.childOrder = childOrder;
+	// }
+	//
+	// public void setLogisticInfoList(String logisticInfo) {
+	// List<LogisticInfoVO> logisticInfoList = JSON.parseArray(logisticInfo,
+	// LogisticInfoVO.class);
+	// this.setLogisticInfo(logisticInfoList);
+	// }
 
-	public List<ChildOrderExtInfoVO> getChildOrderExtInfo() {
-		return childOrderExtInfo;
-	}
-
-	public void setChildOrderExtInfo(List<ChildOrderExtInfoVO> childOrderExtInfo) {
-		this.childOrderExtInfo = childOrderExtInfo;
-	}
-
-	public void setChildOrderList(String childOrder) {
-		List<ChildOrderVO> childOrderList = JSON.parseArray(childOrder, ChildOrderVO.class);
-		this.setChildOrder(childOrderList);
-	}
-
-	public List<ChildOrderVO> getChildOrder() {
-		return childOrder;
-	}
-
-	public void setChildOrder(List<ChildOrderVO> childOrder) {
-		this.childOrder = childOrder;
-	}
-
-	public void setLogisticInfoList(String logisticInfo) {
-		List<LogisticInfoVO> logisticInfoList = JSON.parseArray(logisticInfo, LogisticInfoVO.class);
-		this.setLogisticInfo(logisticInfoList);
-	}
-
-	public List<LogisticInfoVO> getLogisticInfo() {
-		return logisticInfo;
-	}
-
-	public void setLogisticInfo(List<LogisticInfoVO> logisticInfo) {
-		this.logisticInfo = logisticInfo;
-	}
-
-	public void setOprLogDtoList(String oprLogDto) {
-		List<OprLogDtoVO> oprLogDtos = JSON.parseArray(oprLogDto, OprLogDtoVO.class);
-		this.setOprLogDtos(oprLogDtos);
-	}
-
-	public List<OprLogDtoVO> getOprLogDtos() {
-		return oprLogDtos;
-	}
-
-	public void setOprLogDtos(List<OprLogDtoVO> oprLogDtos) {
-		this.oprLogDtos = oprLogDtos;
-	}
+	// public List<LogisticInfoVO> getLogisticInfo() {
+	// return logisticInfo;
+	// }
+	//
+	// public void setLogisticInfo(List<LogisticInfoVO> logisticInfo) {
+	// this.logisticInfo = logisticInfo;
+	// }
+	//
+	// public void setOprLogDtoList(String oprLogDto) {
+	// List<OprLogDtoVO> oprLogDtos = JSON.parseArray(oprLogDto,
+	// OprLogDtoVO.class);
+	// this.setOprLogDtos(oprLogDtos);
+	// }
+	//
+	// public List<OprLogDtoVO> getOprLogDtos() {
+	// return oprLogDtos;
+	// }
+	//
+	// public void setOprLogDtos(List<OprLogDtoVO> oprLogDtos) {
+	// this.oprLogDtos = oprLogDtos;
+	// }
 
 	public String getBuyerInfo() {
 		return buyerInfo;
@@ -175,37 +187,37 @@ public class AliOrderVO implements Serializable {
 		this.fundStatus = fundStatus;
 	}
 
-	public Date getGmtCreate() {
-		return gmtCreate;
-	}
-
-	public void setGmtCreate(Date gmtCreate) {
-		this.gmtCreate = gmtCreate;
-	}
-
-	public Date getGmtModified() {
-		return gmtModified;
-	}
-
-	public void setGmtModified(Date gmtModified) {
-		this.gmtModified = gmtModified;
-	}
-
-	public Date getGmtPaySuccess() {
-		return gmtPaySuccess;
-	}
-
-	public void setGmtPaySuccess(Date gmtPaySuccess) {
-		this.gmtPaySuccess = gmtPaySuccess;
-	}
-
-	public Date getGmtTradeEnd() {
-		return gmtTradeEnd;
-	}
-
-	public void setGmtTradeEnd(Date gmtTradeEnd) {
-		this.gmtTradeEnd = gmtTradeEnd;
-	}
+	// public Date getGmtCreate() {
+	// return gmtCreate;
+	// }
+	//
+	// public void setGmtCreate(Date gmtCreate) {
+	// this.gmtCreate = gmtCreate;
+	// }
+	//
+	// public Date getGmtModified() {
+	// return gmtModified;
+	// }
+	//
+	// public void setGmtModified(Date gmtModified) {
+	// this.gmtModified = gmtModified;
+	// }
+	//
+	// public Date getGmtPaySuccess() {
+	// return gmtPaySuccess;
+	// }
+	//
+	// public void setGmtPaySuccess(Date gmtPaySuccess) {
+	// this.gmtPaySuccess = gmtPaySuccess;
+	// }
+	//
+	// public Date getGmtTradeEnd() {
+	// return gmtTradeEnd;
+	// }
+	//
+	// public void setGmtTradeEnd(Date gmtTradeEnd) {
+	// this.gmtTradeEnd = gmtTradeEnd;
+	// }
 
 	public Long getId() {
 		return id;
